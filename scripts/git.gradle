@@ -1,0 +1,16 @@
+
+if (!hasProperty('gitUsername')) {
+    ext.gitUsername = project.credentials['Github'].username
+}
+if (!hasProperty('gitPassword')) {
+    ext.gitPassword = project.credentials['Github'].password
+}
+
+git {
+    EverythingAsCode {
+        url gitURL
+        directory file("$seuRoot/codebase/everything-as-code/")
+        username = gitUsername
+        password = gitPassword
+    }
+}

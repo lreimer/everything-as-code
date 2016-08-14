@@ -1,0 +1,27 @@
+plugins {
+    id 'groovy'
+
+    id "org.standardout.versioneye" version "1.4.0"
+		id "com.github.hierynomus.license" version "0.13.1"
+}
+
+versioneye {
+		dependencies = transitive
+		includeSubProjects = true
+		includePlugins = false
+		exclude 'testCompile', 'testRuntime'
+}
+
+license {
+		skipExistingHeaders = true
+		header rootProject.file('LICENSE')
+		includes(["**/*.java", "**/*.kt", "**/*.groovy"])
+		mapping {
+				java = 'SLASHSTAR_STYLE'
+				kt = 'SLASHSTAR_STYLE'
+				groovy = 'SLASHSTAR_STYLE'
+		}
+}
+
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
