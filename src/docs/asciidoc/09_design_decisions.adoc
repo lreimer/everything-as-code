@@ -1,0 +1,39 @@
+[[section-design-decisions]]
+== Design Decisions
+
+
+
+
+=== Decision Topic Template
+
+.Problem
+
+
+.Constraints
+
+
+
+.Assumptions
+
+
+
+.Considered Alternatives
+
+
+
+.Decision
+
+
+
+=== Decision Topic 1
++
+
+=== Decision Topic 2
++
+
+=== Decision Topic 3
++
+
+=== ...
++
+

@@ -1,0 +1,64 @@
+[[section-architecture-constraints]]
+== Architecture Constraints
+
+
+
+
+=== Technical Constraints
+
+
+
+
+.List of Technical Constraints
+[options="header",cols="<.<1,<.<4"]
+|===
+2+^e|  Technical Constraints
+2+^e|  Hardware Constraints
+| C1                                | insert description here  
+| C2                                | insert description here 
+| C3                                | insert description here
+2+^e| Software Constraints
+| C4                       | insert description here 
+| C5                       | insert description here 
+| C6                       | insert description here 
+2+^e| Operating System Constraints
+| C7                               | insert description here 
+| C8                               | insert description here
+| C9                               | insert description here
+2+^e| Programming Constraints
+| C10                         | insert description here 
+| C11                         | insert description here 
+| C12                         | insert description here 
+|===
+
+
+
+=== Organizational Constraints
+
+
+
+.List of Organizational Constraints
+[options="header",cols="<.<1,<.<4"]
+|===
+2+^e| Organizational Constraints
+2+^e| Organization and Structure
+|C1 |  insert description here
+|C2 |  insert description here
+2+^e| Resources (Budget, Time, Personnel)
+|C3| insert description here
+|C4| insert description here
+2+^e| Organizational Standards
+|C5| insert description here
+|C6| insert description here
+2+^e| Legal Factors
+|C7| insert description here
+|C8| insert description here
+|===
+
+
+
+
+=== Conventions
+
+
+

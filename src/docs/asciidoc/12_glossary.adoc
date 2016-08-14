@@ -1,0 +1,13 @@
+[[section-glossary]]
+== Glossary
+
+ 
+
+
+
+[options="header"]
+|===
+| Glossary                    |||
+| Term                        | Synonym                 | Description |
+| Term                        | Synonym                 | Description |
+|===

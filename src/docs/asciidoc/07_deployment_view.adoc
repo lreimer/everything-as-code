@@ -1,0 +1,41 @@
+[[section-deployment-view]]
+== Deployment View
+
+
+
+
+=== Infrastructure Level 1
+
+==== Deployment Diagram Level 1
+
+
+
+==== Processor 1
+
+<insert node template here>
+
+
+
+==== Processor 2
+
+<insert node template here>
+
+==== ...
+
+==== Processor n
+
+<insert node template here>
+
+==== Channel 1
+
+
+
+==== Channel 2
+
+==== ...
+
+==== Channel m
+
+=== Infrastructure Level 2
+
+

@@ -1,0 +1,118 @@
+[[section-concepts]]
+== Concepts
+
+
+
+
+=== Domain Models
+
+
+
+=== Recurring or Generic Structures and Patterns
+
+
+
+==== Recurring or Generic Structure 1
+
+<insert diagram and descriptions here>
+
+==== Recurring or Generic Structure 2
+
+<insert diagram and descriptions here>
+
+=== Persistency
+
+
+
+=== User Interface
+
+
+
+=== Ergonomics
+
+
+
+=== Flow of Control
+
+
+
+=== Transaction Processing
+
+
+
+=== Session Handling
+
+
+
+=== Security
+
+
+
+=== Safety
+
+
+
+=== Communications and Integration
+
+
+
+
+=== Distribution
+
+
+
+=== Plausibility and Validity Checks
+
+
+
+=== Exception/Error Handling
+
+
+
+=== System Management and Administration
+
+
+
+=== Logging, Tracing
+
+
+
+=== Business Rules
+
+
+
+=== Configurability
+
+
+
+=== Parallelization and Threading
+
+
+
+=== Internationalization
+
+
+
+=== Migration
+
+
+
+=== Testability
+
+
+
+=== Scaling, Clustering
+
+
+
+=== High Availability
+
+
+
+=== Code Generation
+
+
+
+=== Build-Management
+
+

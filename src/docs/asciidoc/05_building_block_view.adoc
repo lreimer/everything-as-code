@@ -1,0 +1,103 @@
+[[section-building-block-view]]
+== Building Block View
+
+
+
+
+=== Level 1
+
+
+The following diagram shows the main building blocks of the system and their interdependencies:
+
+<insert overview diagram here>
+
+Comments regarding structure and interdependencies at Level 1:
+
+==== Building Block Name 1 (Black Box Description)
+
+
+<insert the building block’s black box template here>
+
+==== Building Block Name 2 (Black Box Description)
+
+<insert the building block’s black box template here>
+
+==== ...
+
+<insert the building block’s black box template here>
+
+==== Building Block Name n (Black Box Description)
+
+<insert the building block’s black box template here>
+
+==== Open Issues
+
+=== Level 2
+
+
+
+==== Building Block Name 1 (White Box Description)
+
+
+<insert diagram of building block 1 here>
+
+===== Building Block Name 1.1 (Black Box Description)
+
+
+===== Building Block Name 1.2 (Black Box Description)
+
+Structure according to black box template
+
+===== ...
+
+===== Building Block Name 1.n (Black Box Description)
+
+
+===== Description of Relationships
+
+===== Open Issues
+
+==== Building Block Name 2 (White Box Description)
+
+…
+
+<insert diagram of building block 2 here>
+
+===== Building Block Name 2.1 (Black Box Description)
+
+Structure according to black box template
+
+===== Building Block Name 2.2 (Black Box Description)
+
+
+===== ...
+
+===== Building Block Name 2.n (Black Box Description)
+
+
+===== Description of Relationships
+
+===== Open Issues
+
+==== Building Block Name 3 (White Box Description)
+
+...
+
+<insert diagram of building block 3 here>
+
+===== Building Block Name 3.1 (Black Box Description)
+
+
+===== Building Block Name 3.2 (Black Box Description)
+
+===== ...
+
+===== Building Block Name 3.n (Black Box Description)
+
+
+===== Description of Relationships
+
+===== Open Issues
+
+=== Level 3
+

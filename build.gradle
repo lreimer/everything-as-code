@@ -1,26 +1,50 @@
 plugins {
-    id 'groovy'
-
     id "org.standardout.versioneye" version "1.4.0"
-		id "com.github.hierynomus.license" version "0.13.1"
+    id "com.github.hierynomus.license" version "0.13.1"
+    id "org.asciidoctor.convert" version "1.5.3"
+}
+
+apply plugin: 'groovy'
+apply plugin: 'scala'
+
+repositories {
+    mavenLocal()
+    jcenter()
+    mavenCentral()
+}
+
+dependencies {
+    testCompile "org.scala-lang:scala-library:2.11.8"
+}
+
+asciidoctor {
+    backends 'html5'
+    resources {
+        from('src/docs/asciidoc') {
+            include 'images/**/*.png'
+            include 'images/**/*.jpg'
+        }
+    }
+    options doctype: 'article'
+    attributes 'source-highlighter': 'coderay'
 }
 
 versioneye {
-		dependencies = transitive
-		includeSubProjects = true
-		includePlugins = false
-		exclude 'testCompile', 'testRuntime'
+    dependencies = transitive
+    includeSubProjects = true
+    includePlugins = false
+    exclude 'testCompile', 'testRuntime'
 }
 
 license {
-		skipExistingHeaders = true
-		header rootProject.file('LICENSE')
-		includes(["**/*.java", "**/*.kt", "**/*.groovy"])
-		mapping {
-				java = 'SLASHSTAR_STYLE'
-				kt = 'SLASHSTAR_STYLE'
-				groovy = 'SLASHSTAR_STYLE'
-		}
+    skipExistingHeaders = true
+    header rootProject.file('LICENSE')
+    includes(["**/*.java", "**/*.kt", "**/*.groovy"])
+    mapping {
+        java = 'SLASHSTAR_STYLE'
+        kt = 'SLASHSTAR_STYLE'
+        groovy = 'SLASHSTAR_STYLE'
+    }
 }
 
 sourceCompatibility = 1.8
