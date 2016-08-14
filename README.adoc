@@ -6,6 +6,14 @@ image:https://img.shields.io/badge/license-MIT%20License-blue.svg["MIT License",
 
 = Everything-as-code. A polyglot experiment.
 
+As modern, agile developers we love to master several different languages all at once to be 100% productive.
+We define our development environments using Gradle. We implement our software in Java, Kotlin or another JVM
+based language. We use Groovy or Scala to test our code at different layers. We construct the build pipelines
+for our software using a Groovy DSL or JSON. We use YAML and Python to describe the infrastructure and the
+deployment for our applications. We document our architectures using AsciiDoc and JRuby. Welcome to Babel!
+Making the right choice in this multitude of available languages is not easy. This polyglot example project is
+a highly opinionated journey into the modern era of software industrialization.
+
 
 == References
 
