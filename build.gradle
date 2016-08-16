@@ -32,7 +32,9 @@ repositories {
 
 dependencies {
     providedCompile 'fish.payara.extras:payara-micro:4.1.1.162'
-    runtime 'com.fasterxml.jackson.module:jackson-module-jaxb-annotations:2.5.1'
+
+    // https://java.net/jira/browse/GLASSFISH-21141
+    // runtime 'com.fasterxml.jackson.module:jackson-module-jaxb-annotations:2.5.1'
 
     compile "org.jetbrains.kotlin:kotlin-stdlib:$kotlinVersion"
     compile "org.jetbrains.kotlin:kotlin-reflect:$kotlinVersion"
@@ -53,6 +55,13 @@ test {
         junitXml.enabled = false
         html.enabled = true
     }
+}
+
+task buildUberJar(group: 'build', type: JavaExec) {
+    main = 'fish.payara.micro.PayaraMicro'
+    classpath = sourceSets.main.runtimeClasspath
+    args = ['--deploy', "build/libs/everything-as-code-${version}.war",
+            '--outputUberJar', "build/libs/everything-as-code-${version}.jar"]
 }
 
 asciidoctorj {

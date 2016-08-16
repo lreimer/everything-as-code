@@ -54,4 +54,14 @@ class BookshelfSpec extends Specification {
         "0345391802" || "The Hitchhiker's Guide to the Galaxy" | "Douglas Adams"
         "0345391829" || "Life, the Universe and Everything" | "Douglas Adams"
     }
+
+    def "Search a known book by it's title"() {
+        expect: 'we search a book by a known title'
+        bookshelf.byTitle("Life, the Universe and Everything").size() == 1
+    }
+
+    def "Search an unknown book by it's title"() {
+        expect: 'we search a book by an unknown title'
+        bookshelf.byTitle("Everything-as-code").size() == 0
+    }
 }

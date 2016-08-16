@@ -24,10 +24,10 @@
 package everything.`as`.code
 
 import javax.inject.Inject
-import javax.ws.rs.GET
-import javax.ws.rs.Path
-import javax.ws.rs.Produces
+import javax.ws.rs.*
 import javax.ws.rs.core.MediaType
+import javax.ws.rs.core.Response
+import javax.ws.rs.core.Response.Status
 
 /**
  * The book REST resource with basic operations.
@@ -37,6 +37,15 @@ import javax.ws.rs.core.MediaType
 open class BookResource @Inject constructor(private val bookshelf: Bookshelf) {
 
     @GET
-    open fun books(): List<Book> = bookshelf.all()
+    open fun books(@DefaultValue("") @QueryParam("title") title: String?): Collection<Book> {
+        return if (title.isNullOrEmpty()) bookshelf.all() else bookshelf.byTitle(title)
+    }
+
+    @GET
+    @Path("/{isbn}")
+    open fun byIsbn(@PathParam("isbn") isbn: String): Response {
+        val book = bookshelf.byIsbn(isbn)
+        return if (book != null) Response.ok(book).build() else Response.status(Status.NOT_FOUND).build()
+    }
 
 }

@@ -36,7 +36,27 @@ open class Bookshelf {
             Book("The Hitchhiker's Guide to the Galaxy", "0345391802", "Douglas Adams"),
             Book("Life, the Universe and Everything", "0345391829", "Douglas Adams"))
 
-    open fun all(): List<Book> = books
+    /**
+     * Get all books on the bookshelf.
+     *
+     * @return the list of all books
+     */
+    open fun all(): Collection<Book> = books
 
+    /**
+     * Find the book with the specified ISBN.
+     *
+     * @param isbn the ISBN-10 we are looking for
+     * @return the book or NULL if not found
+     */
     open fun byIsbn(isbn: String): Book? = books.find { it.isbn == isbn }
+
+    /**
+     * Get all books with the given title.
+     *
+     * @param title the books' title
+     * @return the list of matching books
+     */
+    open fun byTitle(title: String?): Collection<Book> = books.filter { it.title == title }
+
 }

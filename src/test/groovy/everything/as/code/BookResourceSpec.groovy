@@ -30,15 +30,20 @@ import spock.lang.Specification
  */
 class BookResourceSpec extends Specification {
 
-    def bookshelf = Mock(Bookshelf)
+    Bookshelf bookshelf
+    BookResource resource
+
+    void setup() {
+        bookshelf = Mock(Bookshelf)
+        resource = new BookResource(bookshelf)
+    }
 
     def "Get list of all books"() {
         given: 'a fresh resource and initialized mock'
-        def resource = new BookResource(bookshelf)
         bookshelf.all() >> [new Book('Title', 'ISBN', 'Unknown')]
 
         when: 'we GET the list of all books'
-        def books = resource.books()
+        def books = resource.books(null)
 
         then: 'the test book should be returned'
         books.size() == 1
@@ -47,4 +52,24 @@ class BookResourceSpec extends Specification {
         books[0].author == 'Unknown'
     }
 
+    def "Get a book by its title"() {
+        given:
+        bookshelf.byTitle("Title") >> [new Book('Title', '4711', 'Unknown')]
+
+        expect:
+        resource.books("Title").size() == 1
+    }
+
+    def "Get a book by its ISBN"() {
+        given:
+        def book = new Book('Title', '4711', 'Unknown')
+
+        when:
+        def response = resource.byIsbn("4711")
+
+        then:
+        1 * bookshelf.byIsbn("4711") >> book
+        response.status == 200
+        response.entity == book
+    }
 }
