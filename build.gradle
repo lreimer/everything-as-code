@@ -14,6 +14,7 @@ plugins {
     id "org.standardout.versioneye" version "1.4.0"
     id "com.github.hierynomus.license" version "0.13.1"
     id "org.asciidoctor.convert" version "1.5.3"
+    id "org.mikeneck.payara-plugin" version "0.0.2"
 }
 
 apply plugin: 'war'
@@ -31,6 +32,7 @@ repositories {
 
 dependencies {
     providedCompile 'fish.payara.extras:payara-micro:4.1.1.162'
+    runtime 'com.fasterxml.jackson.module:jackson-module-jaxb-annotations:2.5.1'
 
     compile "org.jetbrains.kotlin:kotlin-stdlib:$kotlinVersion"
     compile "org.jetbrains.kotlin:kotlin-reflect:$kotlinVersion"

@@ -34,6 +34,6 @@ class BookstoreAPISpec extends Specification {
         def api = new BookstoreAPI()
 
         expect:
-        api.classes.size() == 1
+        api.classes.size() == 2
     }
 }

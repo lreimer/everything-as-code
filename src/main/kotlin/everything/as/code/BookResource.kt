@@ -23,21 +23,20 @@
  */
 package everything.`as`.code
 
-import javax.enterprise.context.RequestScoped
 import javax.inject.Inject
 import javax.ws.rs.GET
 import javax.ws.rs.Path
+import javax.ws.rs.Produces
+import javax.ws.rs.core.MediaType
 
 /**
  * The book REST resource with basic operations.
  */
-@RequestScoped
 @Path("books")
-open class BookResource constructor(@Inject val bookshelf: Bookshelf) {
+@Produces(MediaType.APPLICATION_JSON)
+open class BookResource @Inject constructor(private val bookshelf: Bookshelf) {
 
     @GET
-    open fun books(): List<Book> {
-        return bookshelf.all()
-    }
+    open fun books(): List<Book> = bookshelf.all()
 
 }

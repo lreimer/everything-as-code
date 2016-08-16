@@ -23,7 +23,7 @@
  */
 package everything.`as`.code
 
-import java.util.*
+import org.glassfish.jersey.jackson.JacksonFeature
 import javax.ws.rs.ApplicationPath
 import javax.ws.rs.core.Application
 
@@ -32,5 +32,5 @@ import javax.ws.rs.core.Application
  */
 @ApplicationPath("api")
 class BookstoreAPI : Application() {
-    override fun getClasses(): MutableSet<Class<*>>? = Collections.singleton(BookResource::class.java)
+    override fun getClasses(): MutableSet<Class<*>>? = hashSetOf(JacksonFeature::class.java, BookResource::class.java)
 }
