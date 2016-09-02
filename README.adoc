@@ -4,7 +4,7 @@ image:https://badge.waffle.io/lreimer/everything-as-code.png?label=in%20progress
 image:https://www.versioneye.com/user/projects/57b0d490ba81b400169291b5/badge.svg?style=flat-square["Dependency Status", link="https://www.versioneye.com/user/projects/57b0d490ba81b400169291b5"]
 image:https://img.shields.io/badge/license-MIT%20License-blue.svg["MIT License", link=https://github.com/lreimer/everything-as-code/blob/master/LICENSE"]
 
-http://= Everything-as-code. A polyglot experiment.
+= Everything-as-code. A polyglot experiment.
 
 As modern, agile developers we love to master several different languages all at once to be 100% productive.
 We define our development environments using Gradle. We implement our software in Java, Kotlin or another JVM
@@ -28,28 +28,3 @@ M.-Leander Reimer (@lreimer), <mario-leander.reimer@qaware.de>
 
 The software and documentation is provided under the MIT open source license,
 read the `LICENSE` file for details.
-[= Everything-as-code. A polyglot experiment.
-
-As modern, agile developers we love to master several different languages all at once to be 100% productive.
-We define our development environments using Gradle. We implement our software in Java, Kotlin or another JVM
-based language. We use Groovy or Scala to test our code at different layers. We construct the build pipelines
-for our software using a Groovy DSL or JSON. We use YAML and Python to describe the infrastructure and the
-deployment for our applications. We document our architectures using AsciiDoc and JRuby. Welcome to Babel!
-Making the right choice in this multitude of available languages is not easy. This polyglot example project is
-a highly opinionated journey into the modern era of software industrialization.
-
-
-== References
-
-
-
-
-== Maintainer
-
-M.-Leander Reimer (@lreimer), <mario-leander.reimer@qaware.de>
-
-== License
-
-The software and documentation is provided under the MIT open source license,
-read the `LICENSE` file for details.
-][][]
