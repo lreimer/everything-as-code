@@ -14,8 +14,8 @@ buildscript {
    }
    dependencies {
        classpath 'de.qaware.seu.as.code:seuac-base-plugin:2.4.0'
-       classpath 'de.qaware.seu.as.code:seuac-credentials-plugin:2.4.0.RC2'
-       classpath 'de.qaware.seu.as.code:seuac-git-plugin:2.2.0'
+       classpath 'de.qaware.seu.as.code:seuac-credentials-plugin:2.4.0'
+       classpath 'de.qaware.seu.as.code:seuac-git-plugin:2.3.0'
    }
 }
 
@@ -23,8 +23,8 @@ apply plugin: 'de.qaware.seu.as.code.base'
 apply plugin: 'de.qaware.seu.as.code.credentials'
 apply plugin: 'de.qaware.seu.as.code.git'
 
+
 import static de.qaware.seu.as.code.plugins.base.Platform.isWindows
-import static de.qaware.seu.as.code.plugins.base.Platform.isMacOs
 
 ext {
     seuRoot = isWindows() ? 'Y:' : '/Volumes/Everything-as-code'
@@ -47,6 +47,11 @@ dependencies {
 
     home 'de.qaware.seu.as.code:seuac-home:2.3.0'
     software "de.qaware.seu.as.code:seuac-environment:2.3.0:$osClassifier"
+
+    software 'org.gradle:gradle:3.0'
+    software 'org.groovy-lang:groovy:2.4.7'
+    software 'org.scala-lang:scala:2.11.8'
+    software 'org.jruby:jruby:9.1.4.0'
 }
 
 platform {
