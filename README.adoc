@@ -14,6 +14,14 @@ deployment for our applications. We document our architectures using AsciiDoc an
 Making the right choice in this multitude of available languages is not easy. This polyglot example project is
 a highly opinionated journey into the modern era of software industrialization.
 
+== SEU-as-code
+
+This project uses SEU-as-code to build the software development environment for this project using Gradle. The definition
+is contained in the `build.seu` build file. To bootstrap the SEU, you need to issue the following command:
+```bash
+$ ./gradlew -b build.seu bootstrapSeu
+```
+
 
 == References
 
