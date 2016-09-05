@@ -31,7 +31,7 @@ repositories {
 }
 
 dependencies {
-    providedCompile 'fish.payara.extras:payara-micro:4.1.1.162'
+    providedCompile 'fish.payara.extras:payara-micro:4.1.1.163'
 
     // https://java.net/jira/browse/GLASSFISH-21141
     // runtime 'com.fasterxml.jackson.module:jackson-module-jaxb-annotations:2.5.1'
