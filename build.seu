@@ -5,24 +5,11 @@
  *        /____//_____/ \____/   \__,_//____/   \____/ \____/ \__,_/ \___/
  */
 
-buildscript {
-   repositories {
-       jcenter()
-       maven {
-           url 'https://dl.bintray.com/seu-as-code/gradle-plugins'
-       }
-   }
-   dependencies {
-       classpath 'de.qaware.seu.as.code:seuac-base-plugin:2.4.0'
-       classpath 'de.qaware.seu.as.code:seuac-credentials-plugin:2.4.0'
-       classpath 'de.qaware.seu.as.code:seuac-git-plugin:2.3.0'
-   }
+plugins {
+    id 'de.qaware.seu.as.code.base' version '2.4.0'
+    id 'de.qaware.seu.as.code.credentials' version '2.4.0'
+    id 'de.qaware.seu.as.code.git' version '2.3.0'
 }
-
-apply plugin: 'de.qaware.seu.as.code.base'
-apply plugin: 'de.qaware.seu.as.code.credentials'
-apply plugin: 'de.qaware.seu.as.code.git'
-
 
 import static de.qaware.seu.as.code.plugins.base.Platform.isWindows
 
@@ -35,9 +22,9 @@ apply from: 'scripts/git.gradle'
 
 repositories {
     flatDir { dirs 'repo' }
-  	maven {
-  	   url 'https://dl.bintray.com/seu-as-code/maven'
-  	}
+    maven {
+        url 'https://dl.bintray.com/seu-as-code/maven'
+    }
     jcenter()
 }
 
