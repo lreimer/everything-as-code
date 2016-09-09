@@ -1,11 +1,18 @@
 buildscript {
-    ext.kotlinVersion = '1.0.3'
+    ext {
+        kotlinVersion = '1.0.3'
+        kumuluzVersion = '2.0.0'
+        jerseyVersion = '2.17'      //required by KumuluzEE 2.0.0
+        weldVersion = '2.3.3.Final' //required by KumuluzEE 2.0.0
+        port = 18080                //application listening port
+    }
 
     repositories {
         jcenter()
     }
 
     dependencies {
+        classpath 'org.asciidoctor:asciidoctorj-pdf:1.5.0-alpha.11'
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlinVersion"
     }
 }
@@ -14,10 +21,10 @@ plugins {
     id "org.standardout.versioneye" version "1.4.0"
     id "com.github.hierynomus.license" version "0.13.1"
     id "org.asciidoctor.convert" version "1.5.3"
-    id "org.mikeneck.payara-plugin" version "0.0.2"
 }
 
-apply plugin: 'war'
+apply plugin: 'application'
+apply plugin: 'java'
 apply plugin: 'kotlin'
 apply plugin: 'groovy'
 apply plugin: 'scala'
@@ -31,10 +38,11 @@ repositories {
 }
 
 dependencies {
-    providedCompile 'fish.payara.extras:payara-micro:4.1.1.163'
-
-    // https://java.net/jira/browse/GLASSFISH-21141
-    // runtime 'com.fasterxml.jackson.module:jackson-module-jaxb-annotations:2.5.1'
+    // KumuluzEE micro JEE container
+    compile "com.kumuluz.ee:kumuluzee-core:$kumuluzVersion"
+    compile "com.kumuluz.ee:kumuluzee-servlet-jetty:$kumuluzVersion"
+    compile "com.kumuluz.ee:kumuluzee-jax-rs-jersey:$kumuluzVersion"
+    compile "com.kumuluz.ee:kumuluzee-cdi-weld:$kumuluzVersion"
 
     compile "org.jetbrains.kotlin:kotlin-stdlib:$kotlinVersion"
     compile "org.jetbrains.kotlin:kotlin-reflect:$kotlinVersion"
@@ -45,9 +53,19 @@ dependencies {
     testRuntime 'org.objenesis:objenesis:2.4'
     testRuntime 'com.athaydes:spock-reports:1.2.12'
 
+    testCompile 'io.rest-assured:rest-assured:3.0.1'
+
     testRuntime 'org.slf4j:slf4j-simple:1.7.13'
 
     testCompile "org.scala-lang:scala-library:2.11.8"
+}
+
+// copy all resources into classes folder (required by KumuluzEE and Deltaspike)
+sourceSets {
+    main {
+        output.resourcesDir = "build/classes"
+        output.classesDir = 'build/classes'
+    }
 }
 
 test {
@@ -57,11 +75,11 @@ test {
     }
 }
 
-task buildUberJar(group: 'build', type: JavaExec) {
-    main = 'fish.payara.micro.PayaraMicro'
-    classpath = sourceSets.main.runtimeClasspath
-    args = ['--deploy', "build/libs/everything-as-code-${version}.war",
-            '--outputUberJar', "build/libs/everything-as-code-${version}.jar"]
+mainClassName = 'everything.as.code.BookApplication'
+
+// set appropriate KumuluzEE listening port when application:run
+tasks.withType(JavaExec) {
+    environment = ['PORT': port]
 }
 
 asciidoctorj {
@@ -69,7 +87,7 @@ asciidoctorj {
 }
 
 asciidoctor {
-    backends 'html5'
+    backends 'html5', 'pdf'
     resources {
         from('src/docs/asciidoc') {
             include 'images/**/*.png'
@@ -90,7 +108,7 @@ versioneye {
 license {
     skipExistingHeaders = true
     header rootProject.file('LICENSE')
-    includes(["**/*.java", "**/*.kt", "**/*.groovy"])
+    includes(["**/*.java", "**/*.kt", "**/*.groovy", "**/*.scala"])
     mapping {
         java = 'SLASHSTAR_STYLE'
         kt = 'SLASHSTAR_STYLE'
