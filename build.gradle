@@ -21,6 +21,7 @@ plugins {
     id "org.standardout.versioneye" version "1.4.0"
     id "com.github.hierynomus.license" version "0.13.1"
     id "org.asciidoctor.convert" version "1.5.3"
+    id "com.github.lkishalmi.gatling" version "0.4.1"
 }
 
 apply plugin: 'application'
@@ -83,6 +84,14 @@ test {
 // set appropriate KumuluzEE listening port when application:run
 tasks.withType(JavaExec) {
     environment = ['PORT': port]
+}
+
+gatling {
+    toolVersion = '2.2.2'
+    jvmArgs = ['-server', '-Xmx512M', '-Djava.net.preferIPv4Stack=true', "-Djava.net.preferIPv6Addresses=false"]
+    simulations = {
+        include "**/*PerformanceTest.scala"
+    }
 }
 
 asciidoctorj {

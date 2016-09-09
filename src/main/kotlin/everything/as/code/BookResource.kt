@@ -23,6 +23,8 @@
  */
 package everything.`as`.code
 
+import java.util.concurrent.ThreadLocalRandom
+import java.util.concurrent.TimeUnit
 import javax.inject.Inject
 import javax.ws.rs.*
 import javax.ws.rs.core.MediaType
@@ -37,13 +39,17 @@ import javax.ws.rs.core.Response.Status
 open class BookResource @Inject constructor(private val bookshelf: Bookshelf) {
 
     @GET
-    open fun books(@DefaultValue("") @QueryParam("title") title: String?): Collection<Book> {
+    open fun books(@QueryParam("title") title: String?): Collection<Book> {
+        TimeUnit.MILLISECONDS.sleep(ThreadLocalRandom.current().nextLong(1250))
+
         return if (title.isNullOrEmpty()) bookshelf.all() else bookshelf.byTitle(title)
     }
 
     @GET
     @Path("/{isbn}")
     open fun byIsbn(@PathParam("isbn") isbn: String): Response {
+        TimeUnit.MILLISECONDS.sleep(ThreadLocalRandom.current().nextLong(1250))
+
         val book = bookshelf.byIsbn(isbn)
         return if (book != null) Response.ok(book).build() else Response.status(Status.NOT_FOUND).build()
     }
