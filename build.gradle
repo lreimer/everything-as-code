@@ -32,6 +32,8 @@ apply plugin: 'scala'
 sourceCompatibility = 1.8
 targetCompatibility = 1.8
 
+mainClassName = 'everything.as.code.BookApplication'
+
 repositories {
     mavenLocal()
     jcenter()
@@ -69,13 +71,14 @@ sourceSets {
 }
 
 test {
+    exclude '**/*Integration*'
+    exclude '**/*Performance*'
+
     reports {
         junitXml.enabled = false
         html.enabled = true
     }
 }
-
-mainClassName = 'everything.as.code.BookApplication'
 
 // set appropriate KumuluzEE listening port when application:run
 tasks.withType(JavaExec) {
