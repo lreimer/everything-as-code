@@ -1,7 +1,7 @@
 
 :imagesdir: ./images
 
-= image:arc42-logo.png[arc42] Everything-as-code
+= image:qaware-logo.png[QAware GmbH,200] Everything-as-code
 // toc-title definition MUST follow document title without blank line!
 :toc-title: Table of Contents
 

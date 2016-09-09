@@ -22,8 +22,38 @@ is contained in the `build.seu` build file. To bootstrap the SEU, you need to is
 $ ./gradlew -b build.seu bootstrapSeu
 ```
 
+== Build-as-code
+
+== Main-as-code
+
+== Test-as-code
+
+This project uses Groovy and Spock for Unit and Integration testing, and Scala with Gatling for Performance testing.
+Spock is JUnit, Hamcrest and Mockito on steroids. Plus a super slick Groovy based DSL. Writing tests like this is fun.
+Also the integration with other well-known frameworks such as RestAssured is very easy and expressive with Spock.
+
+For a total change we use Scale and Gatling as a framework to implement the load tests for this project. Gatling has an
+expressive DSL, any kind of load test can be expressed easily, not matter if it is a REST-stype project or a JSF-based
+UI project.
+
+== Presentation-as-code
+
+The slides for the initial JaavOne presentation are written in Markdown. There are several rendering alternatives available.
+Or if you are a JavaScript fan you can use Reveal.js as a framework to program your slides.
+
+```markdown
+---
+## [fit] These slides are written in Markdown.
+
+- This is for real programmers! :smiley:
+- Several open source projects available
+
+---
+```
 
 == References
+
+http://seu-as-code.io[SEU-as-code]
 
 https://arc42.github.io[Arc42 Architecture Documentation]
 
