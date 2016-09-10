@@ -101,7 +101,7 @@ asciidoctorj {
 asciidoctor {
     backends 'html5', 'pdf'
     resources {
-        from('src/docs/asciidoc') {
+        from('src/docs/architecture') {
             include 'images/**/*.png'
             include 'images/**/*.jpg'
         }
