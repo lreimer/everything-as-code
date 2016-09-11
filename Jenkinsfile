@@ -4,19 +4,16 @@ node {
     stage 'Checkout SCM'
     checkout scm
 
-    stage 'Build Everything'
-    sh "./gradlew clean assemble"
-
-    stage 'Run Unit Tests'
-    sh "./gradlew build"
+    stage 'Build/Analyse/Test'
+    sh './gradlew clean build'
     archiveUnitTestResults()
     archiveDistributions()
 
     stage 'Build Docker Image'
-    sh "./gradlew buildDockerImage"
+    sh './gradlew buildDockerImage'
 
     echo 'Generate Documentation'
-    sh "./gradlew ascii"
+    sh './gradlew asciidoctor'
 }
 
 def archiveUnitTestResults() {
