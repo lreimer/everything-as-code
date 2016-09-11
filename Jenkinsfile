@@ -1,6 +1,9 @@
 #!/usr/bin/env groovy
 
 node {
+    stage 'Pipeline-as-code'
+    echoi 'The build pipeline for Everything-as-code.'
+
     stage 'Checkout SCM'
     checkout scm
 
