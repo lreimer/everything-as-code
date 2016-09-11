@@ -24,7 +24,19 @@ $ ./gradlew -b build.seu bootstrapSeu
 
 == Build-as-code
 
+There are quite some build tools around, every one with its own strengths. Usually I would have used Maven
+to build this kind of project. But Gradle beats Maven by far. It is way more flexible since you can use it
+in a declarative as well as imperative way. It is super fast, since it only executes the really required tasks
+in case of changes. It is highly customizable, via scripts and plugins. And it is short.
+
+```bash
+$ ./gradlew clean build
+```
+
 == Main-as-code
+
+What is your favourite primary language? Java is not a bad choice at all. But Kotlin is a serious contender.
+Highly expressive, easy to learn for a Java developer. Stable.
 
 == Test-as-code
 
@@ -32,9 +44,24 @@ This project uses Groovy and Spock for Unit and Integration testing, and Scala w
 Spock is JUnit, Hamcrest and Mockito on steroids. Plus a super slick Groovy based DSL. Writing tests like this is fun.
 Also the integration with other well-known frameworks such as RestAssured is very easy and expressive with Spock.
 
-For a total change we use Scale and Gatling as a framework to implement the load tests for this project. Gatling has an
-expressive DSL, any kind of load test can be expressed easily, not matter if it is a REST-stype project or a JSF-based
-UI project.
+We use Scala and Gatling as a framework to implement the load tests for this project. Gatling has an
+expressive DSL, any kind of load test can be expressed easily, not matter if it is a REST-stype project
+or a JSF-based UI project.
+
+In order to run the integration and performance tests you currently have to start the application:
+```bash
+$ ./gradlew run
+$ ./gradlew gatlingRun
+```
+
+== Pipeline-as-code
+
+
+== Infrastructure-as-code
+
+
+== Documentation-as-code
+
 
 == Presentation-as-code
 
@@ -53,9 +80,8 @@ Or if you are a JavaScript fan you can use Reveal.js as a framework to program y
 
 == References
 
-http://seu-as-code.io[SEU-as-code]
-
-https://arc42.github.io[Arc42 Architecture Documentation]
+- http://seu-as-code.io[SEU-as-code]
+- https://arc42.github.io[Arc42 Architecture Documentation]
 
 
 == Maintainer

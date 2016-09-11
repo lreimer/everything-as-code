@@ -71,7 +71,7 @@ test {
     exclude '**/*Performance*'
 
     reports {
-        junitXml.enabled = false
+        junitXml.enabled = true
         html.enabled = true
     }
 }
