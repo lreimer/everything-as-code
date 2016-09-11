@@ -120,7 +120,7 @@ import com.bmuschko.gradle.docker.tasks.image.DockerRemoveImage
 task dockerInfo(type: DockerInfo) {}
 task dockerVersion(type: DockerVersion) {}
 
-task buildDockerImage(type: DockerBuildImage) {
+task buildDockerImage(type: DockerBuildImage, dependsOn: 'assemble') {
     inputDir = projectDir
     noCache = false
     remove = true
