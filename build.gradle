@@ -142,13 +142,14 @@ asciidoctorj {
 }
 
 asciidoctor {
-    backends 'html5', 'pdf'
+    sourceDir 'src/docs/architecture'
     resources {
         from('src/docs/architecture') {
             include 'images/**/*.png'
             include 'images/**/*.jpg'
         }
     }
+    backends 'html5', 'pdf'
     options doctype: 'article'
     attributes 'source-highlighter': 'coderay'
 }
