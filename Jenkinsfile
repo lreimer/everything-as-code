@@ -27,5 +27,5 @@ def archiveUnitTestResults() {
 }
 
 def archiveDistributions() {
-    step([$class: 'ArtifactArchiver', artifacts: 'build/distributions/*.*', fingerprint: true])
+    step([$class: 'ArtifactArchiver', artifacts: 'build/distributions/*.zip', fingerprint: true])
 }
