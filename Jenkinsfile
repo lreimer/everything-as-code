@@ -9,9 +9,6 @@ node {
     archiveUnitTestResults()
     archiveDistributions()
 
-    stage 'Build Docker Image'
-    sh './gradlew buildDockerImage'
-
     echo 'Generate Documentation'
     sh './gradlew asciidoctor'
 }
