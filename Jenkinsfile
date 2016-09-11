@@ -2,7 +2,8 @@
 
 node {
     stage 'Pipeline-as-code'
-    echo 'The build pipeline for Everything-as-code.'
+    echo "The build pipeline for Everything-as-code."
+    echo "${env.BUILD_TAG}"
 
     stage 'Checkout SCM'
     checkout scm
