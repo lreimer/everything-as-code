@@ -2,7 +2,7 @@
 
 node {
     stage 'Pipeline-as-code'
-    echoi 'The build pipeline for Everything-as-code.'
+    echo 'The build pipeline for Everything-as-code.'
 
     stage 'Checkout SCM'
     checkout scm
