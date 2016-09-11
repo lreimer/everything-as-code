@@ -1,9 +1,6 @@
 buildscript {
     ext {
         kotlinVersion = '1.0.3'
-        kumuluzVersion = '2.0.0'
-        jerseyVersion = '2.17'      //required by KumuluzEE 2.0.0
-        weldVersion = '2.3.3.Final' //required by KumuluzEE 2.0.0
         port = 18080                //application listening port
     }
 
@@ -20,11 +17,13 @@ buildscript {
 plugins {
     id "org.standardout.versioneye" version "1.4.0"
     id "com.github.hierynomus.license" version "0.13.1"
-    id "org.asciidoctor.convert" version "1.5.3"
     id "com.github.lkishalmi.gatling" version "0.4.1"
+    id "com.bmuschko.docker-remote-api" version "3.0.3"
+    id "org.asciidoctor.convert" version "1.5.3"
 }
 
 apply plugin: 'application'
+apply plugin: 'war'
 apply plugin: 'java'
 apply plugin: 'kotlin'
 apply plugin: 'groovy'
@@ -33,22 +32,16 @@ apply plugin: 'scala'
 sourceCompatibility = 1.8
 targetCompatibility = 1.8
 
-mainClassName = 'everything.as.code.BookApplication'
-
 repositories {
     mavenLocal()
     jcenter()
 }
 
 dependencies {
-    // KumuluzEE micro JEE container
-    compile "com.kumuluz.ee:kumuluzee-core:$kumuluzVersion"
-    compile "com.kumuluz.ee:kumuluzee-servlet-jetty:$kumuluzVersion"
-    compile "com.kumuluz.ee:kumuluzee-jax-rs-jersey:$kumuluzVersion"
-    compile "com.kumuluz.ee:kumuluzee-cdi-weld:$kumuluzVersion"
+    providedCompile "org.jetbrains.kotlin:kotlin-stdlib:$kotlinVersion"
+    providedCompile "org.jetbrains.kotlin:kotlin-reflect:$kotlinVersion"
 
-    compile "org.jetbrains.kotlin:kotlin-stdlib:$kotlinVersion"
-    compile "org.jetbrains.kotlin:kotlin-reflect:$kotlinVersion"
+    providedCompile 'fish.payara.extras:payara-micro:4.1.1.163'
 
     testCompile 'org.codehaus.groovy:groovy-all:2.4.7'
     testCompile 'org.spockframework:spock-core:1.1-groovy-2.4-rc-1'
@@ -81,6 +74,18 @@ test {
     }
 }
 
+mainClassName = 'everything.as.code.BookApplication'
+
+distributions {
+    main {
+        contents {
+            from(war) {
+                into "web"
+            }
+        }
+    }
+}
+
 // set appropriate KumuluzEE listening port when application:run
 tasks.withType(JavaExec) {
     environment = ['PORT': port]
@@ -92,6 +97,42 @@ gatling {
     simulations = {
         include "**/*PerformanceTest.scala"
     }
+}
+
+docker {
+    url = System.env.DOCKER_HOST ?: 'https://192.168.99.100:2376'
+    certPath = file("${System.getProperty('user.home')}/.docker/machine/machines/default")
+
+    registryCredentials {
+        url = 'qaware-oss-docker-registry.bintray.io'
+        username = project.hasProperty('bintrayUsername') ? project.bintrayUsername : 'qaware-oss'
+        password = project.hasProperty('bintrayApiKey') ? project.bintrayApiKey : ''
+        email = 'qaware-oss@qaware.de'
+    }
+}
+
+import com.bmuschko.gradle.docker.tasks.DockerInfo
+import com.bmuschko.gradle.docker.tasks.DockerVersion
+import com.bmuschko.gradle.docker.tasks.image.DockerBuildImage
+import com.bmuschko.gradle.docker.tasks.image.DockerPushImage
+import com.bmuschko.gradle.docker.tasks.image.DockerRemoveImage
+
+task dockerInfo(type: DockerInfo) {}
+task dockerVersion(type: DockerVersion) {}
+
+task buildDockerImage(type: DockerBuildImage) {
+    inputDir = projectDir
+    noCache = false
+    remove = true
+    tag = "$project.name:$version"
+}
+
+task removeDockerImage(type: DockerRemoveImage) {
+    imageId = "$project.name:$version"
+}
+
+task pushDockerImage(type: DockerPushImage) {
+    imageName = "qaware-oss-docker-registry.bintray.io/lreimer/$project.name:$version"
 }
 
 asciidoctorj {
