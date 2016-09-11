@@ -9,7 +9,13 @@ node {
     archiveUnitTestResults()
     archiveDistributions()
 
-    echo 'Generate Documentation'
+    // add additional stages to build docker image
+    // run integration and performance tests
+
+    // maybe add a stage to deploy the image to
+    // the infrastructure
+
+    stage 'Generate Documentation'
     sh './gradlew asciidoctor'
 }
 
