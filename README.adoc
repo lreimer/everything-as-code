@@ -56,6 +56,15 @@ $ ./gradlew gatlingRun
 
 == Pipeline-as-code
 
+We use the latest Jenkins CI server together with the new Pipeline plugin to programmatically define
+the build pipeline for the project. First, we start a Jenkins instance a Docker container:
+```bash
+$ docker run --name jenkinsci -p 8080:8080 -p 50000:50000 -v ~/Jenkins:/var/jenkins_home jenkinsci/jenkins
+```
+
+Next, we add a `Jenkinsfile` to our source repository. This file defines the build pipeline with the
+individual steps and stages.
+
 
 == Infrastructure-as-code
 
@@ -65,7 +74,7 @@ $ ./gradlew gatlingRun
 
 == Presentation-as-code
 
-The slides for the initial JaavOne presentation are written in Markdown. There are several rendering alternatives available.
+The slides for the initial JavaOne 2016 presentation are written in Markdown. There are several rendering alternatives available.
 Or if you are a JavaScript fan you can use Reveal.js as a framework to program your slides.
 
 ```markdown
@@ -80,7 +89,9 @@ Or if you are a JavaScript fan you can use Reveal.js as a framework to program y
 
 == References
 
-- http://seu-as-code.io[SEU-as-code]
+- http://seu-as-code.io[Lightweight Developer Provisioning with Gradle]
+- https://jenkins.io/doc/pipeline/[Getting started with Jenkins Pipeline]
+- https://www.vagrantup.com/docs/[Vagrant Documentation]
 - https://arc42.github.io[Arc42 Architecture Documentation]
 
 
