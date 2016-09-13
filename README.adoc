@@ -77,7 +77,7 @@ our documentation. Good choices are Markdown and Asciidoc.
 
 With AsciidoctorJ we can easily run Asciidoctor on the JVM using JRuby. There also is an excellent Gradle plugin
 available, as well as IDEs for a little more comfort such as IntelliJ or Atom. As an example we used the arc42
-architecture documentation template. To generate the document in HTML5 and PDF run:
+documentation template. To generate the document in HTML5 and PDF run:
 ```bash
 $ ./gradlew -t ascii
 ```
