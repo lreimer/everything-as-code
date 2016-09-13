@@ -32,5 +32,5 @@ import javax.ws.rs.core.Application
  */
 @ApplicationPath("api")
 class BookstoreAPI : Application() {
-    override fun getClasses(): MutableSet<Class<*>>? = hashSetOf(JacksonFeature::class.java, BookResource::class.java)
+    override fun getClasses() = hashSetOf(JacksonFeature::class.java, BookResource::class.java)
 }

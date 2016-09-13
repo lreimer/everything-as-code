@@ -58,11 +58,13 @@ dependencies {
     testCompile "org.scala-lang:scala-library:2.11.8"
 }
 
-// copy all resources into classes folder (required by KumuluzEE and Deltaspike)
+// copy all resources into correct classes folder
 sourceSets {
+    test {
+        output.resourcesDir = 'build/classes/test'
+    }
     main {
-        output.resourcesDir = "build/classes"
-        output.classesDir = 'build/classes'
+        output.resourcesDir = 'build/classes/main'
     }
 }
 

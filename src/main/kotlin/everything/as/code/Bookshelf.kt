@@ -23,7 +23,6 @@
  */
 package everything.`as`.code
 
-import java.util.*
 import javax.enterprise.context.ApplicationScoped
 
 /**
@@ -32,7 +31,7 @@ import javax.enterprise.context.ApplicationScoped
 @ApplicationScoped
 open class Bookshelf {
 
-    private val books: List<Book> = Arrays.asList(
+    private val books = listOf(
             Book("The Hitchhiker's Guide to the Galaxy", "0345391802", "Douglas Adams"),
             Book("Life, the Universe and Everything", "0345391829", "Douglas Adams"))
 
