@@ -1,0 +1,76 @@
+#cloud-config
+
+---
+coreos:
+  etcd2:
+    discovery: https://discovery.etcd.io/d27439e688cb29c19bce1efa6ec18325
+    advertise-client-urls: http://$public_ipv4:2379
+    initial-advertise-peer-urls: http://$private_ipv4:2380
+    listen-client-urls: http://0.0.0.0:2379,http://0.0.0.0:4001
+    listen-peer-urls: http://$private_ipv4:2380,http://$private_ipv4:7001
+  fleet:
+    public-ip: "$public_ipv4"
+  flannel:
+    interface: "$public_ipv4"
+  units:
+  - name: etcd2.service
+    command: start
+  - name: fleet.service
+    command: start
+  - name: flanneld.service
+    drop-ins:
+    - name: 50-network-config.conf
+      content: |
+        [Service]
+        ExecStartPre=/usr/bin/etcdctl set /coreos.com/network/config '{ "Network": "10.1.0.0/16" }'
+    command: start
+  - name: docker-tcp.socket
+    command: start
+    enable: true
+    content: |
+      [Unit]
+      Description=Docker Socket for the API
+
+      [Socket]
+      ListenStream=2375
+      Service=docker.service
+      BindIPv6Only=both
+
+      [Install]
+      WantedBy=sockets.target
+  - name: swarm-agent.service
+    command: start
+    enable: true
+    content: |
+      [Unit]
+      Description=Docker Swarm
+      After=docker.service
+      Requires=docker.service
+
+      [Service]
+      TimeoutStartSec=0
+      ExecStartPre=-/usr/bin/docker kill swarm_agent
+      ExecStartPre=-/usr/bin/docker rm swarm_agent
+      ExecStartPre=/usr/bin/docker pull swarm
+      ExecStart=/usr/bin/docker run -d --name=swarm_agent swarm join --addr=$private_ipv4:2375 etcd://$private_ipv4:4001/swarm
+
+      [Install]
+      WantedBy=multi-user.target
+  - name: swarm-manager.service
+    command: start
+    enable: true
+    content: |
+      [Unit]
+      Description=Docker Swarm Manager
+      After=docker.service
+      Requires=docker.service
+
+      [Service]
+      TimeoutStartSec=0
+      ExecStartPre=-/usr/bin/docker kill swarm_manager
+      ExecStartPre=-/usr/bin/docker rm swarm_manager
+      ExecStartPre=/usr/bin/docker pull swarm
+      ExecStart=/usr/bin/docker run -d --name=swarm_manager -p 2376:2375 -t swarm manage etcd://$private_ipv4:4001/swarm
+
+      [Install]
+      WantedBy=multi-user.target
