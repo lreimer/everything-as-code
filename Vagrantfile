@@ -15,6 +15,10 @@ $setup = <<SCRIPT
 
     sudo apt-get -y install git
     sudo apt-get -y install python-pip
+    sudo apt-get -y install python-dev
+    sudo apt-get -y install libffi-dev
+    sudo apt-get -y install libssl-dev
+
     sudo pip install paramiko PyYAML jinja2 httplib2
 
     git clone git://github.com/ansible/ansible.git
@@ -35,8 +39,11 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     config.vm.box = "ubuntu/trusty32"
     config.vm.box_check_update = false
 
+    config.vbguest.auto_update = false
+    config.vbguest.no_remote = true
+
     config.vm.network "forwarded_port", guest: 18080, host: 18080
-    config.vm.network "public_network"
+    # config.vm.network "public_network"
 
     config.ssh.port = 2222
     config.ssh.forward_agent = true
