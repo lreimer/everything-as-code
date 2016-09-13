@@ -71,6 +71,16 @@ individual steps and stages.
 
 == Documentation-as-code
 
+We want our technical documentation close to the actual source code. We do not want to use a specific editor
+such as Word. The format needs to be lightweight and developer friendly. We want to version control and diff
+our documentation. Good choices are Markdown and Asciidoc.
+
+With AsciidoctorJ we can easily run Asciidoctor on the JVM using JRuby. There also is an excellent Gradle plugin
+available, as well as IDEs for a little more comfort such as IntelliJ or Atom. As an example we used the arc42
+architecture documentation template. To generate the document in HTML5 and PDF run:
+```bash
+$ ./gradlew -t ascii
+```
 
 == Presentation-as-code
 
