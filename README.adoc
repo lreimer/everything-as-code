@@ -90,8 +90,17 @@ Or if you are a JavaScript fan you can use Reveal.js as a framework to program y
 == References
 
 - http://seu-as-code.io[Lightweight Developer Provisioning with Gradle]
+- https://gradle.org[Gradle Build Tool]
+- https://kotlinlang.org/docs/reference/[Kotlin Language Reference]
+- http://www.groovy-lang.org/documentation.html[Groovy Language Documentation]
+- http://spockframework.org/spock/docs/[Spcok Framework Reference Documentation]
+- http://gatling.io/docs/2.2.2/[Gatling Documentation]
+- http://scala-lang.org/documentation/[Scala Language Documentation]
 - https://jenkins.io/doc/pipeline/[Getting started with Jenkins Pipeline]
 - https://www.vagrantup.com/docs/[Vagrant Documentation]
+- http://kubernetes.io/docs/[Kubernetes Documentation]
+- https://docs.ansible.com/ansible/intro.html[Ansible Documentation]
+- https://github.com/asciidoctor/asciidoctorj[AsciidoctorJ]
 - https://arc42.github.io[Arc42 Architecture Documentation]
 
 
