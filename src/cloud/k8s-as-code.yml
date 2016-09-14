@@ -23,6 +23,8 @@ spec:
     metadata:
       labels:
         tier: backend
+        LAUNCHPAD_COLOR: PURPLE
+        LAUNCHPAD_ROW: 1
     spec:
       containers:
       - name: everything-as-code
