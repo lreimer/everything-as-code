@@ -22,7 +22,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     config.vbguest.auto_update = false
     config.vbguest.no_remote = true
 
-    config.vm.network "forwarded_port", guest: 18080, host: 18080
+    # config.vm.network "forwarded_port", guest: 18080, host: 18080
 
     config.ssh.port = 2222
     config.ssh.forward_agent = true
