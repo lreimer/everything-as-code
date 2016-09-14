@@ -151,6 +151,13 @@ task buildDockerImage(type: DockerBuildImage, dependsOn: 'assemble') {
 
 task removeDockerImage(type: DockerRemoveImage) {
     imageId = "$project.name:$version"
+    force = true
+}
+
+task tagDockerImage(type: DockerTagImage) {
+    tag = "$project.name:$version"
+    repository = "qaware-oss-docker-registry.bintray.io/lreimer/$project.name:$version"
+    force = true
 }
 
 task pushDockerImage(type: DockerPushImage) {
