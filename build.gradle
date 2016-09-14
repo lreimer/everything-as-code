@@ -2,6 +2,9 @@ buildscript {
     ext {
         kotlinVersion = '1.0.3'
         port = 18080                //application listening port
+        gebVersion = "0.13.1"
+        seleniumVersion = "2.52.0"
+        drivers = ['htmlunit']
     }
 
     repositories {
@@ -53,6 +56,16 @@ dependencies {
 
     testCompile 'io.rest-assured:rest-assured:3.0.1'
 
+    // If using Spock, need to depend on geb-spock
+    testCompile "org.gebish:geb-spock:$gebVersion"
+    testCompile "org.gebish:geb-core:$gebVersion"
+    testCompile "org.gebish:geb-junit4:$gebVersion"
+
+    // add different drivers to test scope
+    drivers.each { driver ->
+        testCompile "org.seleniumhq.selenium:selenium-$driver-driver:$seleniumVersion"
+    }
+
     testRuntime 'org.slf4j:slf4j-simple:1.7.13'
 
     testCompile "org.scala-lang:scala-library:2.11.8"
@@ -70,7 +83,12 @@ sourceSets {
 
 test {
     exclude '**/*Integration*'
+    exclude '**/*Page*'
     exclude '**/*Performance*'
+
+    systemProperty "geb.build.reportsDir", "$reporting.baseDir/geb"
+    systemProperty "geb.build.baseUrl", "http://localhost:${port}"
+    systemProperty "geb.env", System.getProperty('geb.env', 'HtmlUnit')
 
     reports {
         junitXml.enabled = true
