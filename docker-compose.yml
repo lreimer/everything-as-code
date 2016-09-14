@@ -1,0 +1,8 @@
+everything-as-code:
+  image: "everything-as-code:1.0.0"
+  hostname: everything-as-code
+  environment:
+    JAVA_OPTS: -Xmx128m
+    PORT: 18080
+  ports:
+    - "18080:18080"
