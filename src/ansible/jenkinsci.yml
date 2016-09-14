@@ -1,0 +1,12 @@
+---
+# file: jenkinsci.yml
+- hosts: jenkinsci
+  remote_user: root
+  tasks:
+  - name: Create Everything-as-code Jenkins job with build pipeline
+    jenkins_job:
+      name: Everything-as-code Pipeline
+      config: "{{ lookup('file', 'templates/pipeline-job.xml') }}"
+      url: "http://{{ inventory_hostname }}"
+      user: admin
+      password: admin

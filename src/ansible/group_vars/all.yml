@@ -1,0 +1,4 @@
+---
+# file: group_vars/all.yml
+
+version: 1.0.0
