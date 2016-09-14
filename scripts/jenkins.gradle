@@ -2,14 +2,14 @@ task createJenkinsHome() {
     mkdir("${System.getProperty('user.home')}/Jenkins")
 }
 
-task runJenkins(type: Exec, group: 'jenkins', dependsOn: createJenkinsHome) {
+task runJenkins(type: Exec, group: 'jenkinsci', dependsOn: createJenkinsHome, description: 'Create JenkinsCI container') {
     commandLine 'docker', 'run', '--name', 'jenkinsci', '-p', '8080:8080', '-p', '50000:50000', '-v', "${System.getProperty('user.home')}/Jenkins:/var/jenkins_home", 'jenkinsci/jenkins'
 }
 
-task startJenkins(type: Exec, group: 'jenkins') {
+task startJenkins(type: Exec, group: 'jenkinsci', description: 'Start JenkinsCI container') {
     commandLine 'docker', 'start', 'jenkinsci'
 }
 
-task stopJenkins(type: Exec, group: 'jenkins') {
+task stopJenkins(type: Exec, group: 'jenkinsci', description: 'Stop JenkinsCI container') {
     commandLine 'docker', 'stop', 'jenkinsci'
 }
