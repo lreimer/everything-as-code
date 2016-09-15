@@ -1,7 +1,7 @@
 buildscript {
     ext {
-        kotlinVersion = '1.0.3'
         port = 18080                //application listening port
+        kotlinVersion = '1.0.3'
         gebVersion = "0.13.1"
         seleniumVersion = "2.52.0"
         drivers = ['htmlunit']
@@ -133,11 +133,13 @@ docker {
     }
 }
 
+
 import com.bmuschko.gradle.docker.tasks.DockerInfo
 import com.bmuschko.gradle.docker.tasks.DockerVersion
 import com.bmuschko.gradle.docker.tasks.image.DockerBuildImage
 import com.bmuschko.gradle.docker.tasks.image.DockerPushImage
 import com.bmuschko.gradle.docker.tasks.image.DockerRemoveImage
+import com.bmuschko.gradle.docker.tasks.image.DockerTagImage
 
 task dockerInfo(type: DockerInfo) {}
 task dockerVersion(type: DockerVersion) {}
