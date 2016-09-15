@@ -2,7 +2,7 @@ task createJenkinsHome() {
     mkdir("${System.getProperty('user.home')}/Jenkins")
 }
 
-task runJenkins(type: Exec, group: 'jenkinsci', dependsOn: createJenkinsHome, description: 'Create JenkinsCI container') {
+task createJenkins(type: Exec, group: 'jenkinsci', dependsOn: createJenkinsHome, description: 'Create JenkinsCI container') {
     commandLine 'docker', 'run', '--name', 'jenkinsci', '-p', '8080:8080', '-p', '50000:50000', '-v', "${System.getProperty('user.home')}/Jenkins:/var/jenkins_home", 'jenkinsci/jenkins'
 }
 

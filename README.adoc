@@ -67,7 +67,47 @@ individual steps and stages.
 
 == Infrastructure-as-code
 
+First, we are going to package our micro service application in a Docker container. You can do this on the command
+line or using a suitable Gradle plugin.
+```bash
+$ ./gradlew buildDockerImage
+$ ./gradlew tagDockerImage pushDockerImage
+```
 
+For easy local deployment of the Docker image you can either start a container manually or use Docker Compose
+to manage the lifecycle.
+```bash
+$ docker-compose -d up
+$ docker-compose down
+```
+
+Sometimes it is useful to have a separate local VM you can use to spin up a Docker Swarm cluster with CoreOS, or
+maybe only have a box that you can use as an Ansible control node. We use Vagrant and Ruby for this kind of job.
+```bash
+$ vagrant up
+```
+
+In the Vagrant box we now have an Ansible installation for easy code based infrastructure provisioning.
+You can log into the box using SSH and then execute the Ansible playbooks.
+```bash
+$ vagrant ssh
+$ cd provisioning
+$ ansible-playbook -i development jenkinsci.yml
+```
+
+To deploy our microservice to DC/OS and Marathon you need a cluster. You can create a cluster
+locally using Vagrant or using a cloud provider. Maybe use something like Terraform to create it.
+Then you can create an app in Marathon using:
+```bash
+$ dcos marathon app add src/cloud/dcos-as-code.json
+```
+
+To deploy our microservice to Kubernetes you need a K8S cluster. You can create a cluster
+locally using Vagrant or by using a cloud provider. Maybe use something like Terraform to create it.
+Then you can create a deployment using:
+```bash
+$ kubectl create -f src/cloud/k8s-as-code.yml
+```
 
 == Documentation-as-code
 
