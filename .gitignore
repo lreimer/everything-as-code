@@ -28,3 +28,7 @@ seuac.*.db
 .vagrant
 src/vagrant/cache/apt-archives/*.deb
 src/vagrant/cache/apt-archives/lock
+
+src/cloud/dcos-vagrant-*/
+src/cloud/kubernetes.tar.gz
+src/cloud/kubernetes/
