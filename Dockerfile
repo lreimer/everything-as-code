@@ -1,4 +1,4 @@
-FROM qaware-oss-docker-registry.bintray.io/base/debian8-jre8
+FROM qaware-oss-docker-registry.bintray.io/base/alpine-k8s-openjdk8:8u92
 MAINTAINER M.-Leander Reimer <mario-leander.reimer@qaware.de>
 
 RUN mkdir -p /app
