@@ -23,16 +23,21 @@
  */
 package everything.`as`.code
 
-import org.glassfish.jersey.jackson.JacksonFeature
-import javax.ws.rs.ApplicationPath
-import javax.ws.rs.core.Application
+import javax.ws.rs.container.ContainerRequestContext
+import javax.ws.rs.container.ContainerResponseContext
+import javax.ws.rs.container.ContainerResponseFilter
+import javax.ws.rs.ext.Provider
 
 /**
- * The Bookstore REST API.
+ * The container response filter to implement CORS.
  */
-@ApplicationPath("api")
-class BookstoreAPI : Application() {
-    override fun getClasses() = hashSetOf(JacksonFeature::class.java, BookResource::class.java)
-
-    override fun getSingletons() = hashSetOf(CORSFilter())
+@Provider
+class CORSFilter : ContainerResponseFilter {
+    override fun filter(request: ContainerRequestContext?, response: ContainerResponseContext?) {
+        val headers = response!!.headers
+        headers.add("Access-Control-Allow-Origin", "*")
+        headers.add("Access-Control-Allow-Headers", "origin, content-type, accept, authorization")
+        headers.add("Access-Control-Allow-Credentials", "true")
+        headers.add("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE, OPTIONS, HEAD")
+    }
 }
