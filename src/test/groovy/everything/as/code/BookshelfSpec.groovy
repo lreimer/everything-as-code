@@ -37,7 +37,7 @@ class BookshelfSpec extends Specification {
 
     def "Check all books are there"() {
         expect: 'the correct number of books'
-        bookshelf.all().size() == 2
+        bookshelf.all().size() == 5
     }
 
     @Unroll
