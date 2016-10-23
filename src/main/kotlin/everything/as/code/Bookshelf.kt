@@ -33,6 +33,9 @@ open class Bookshelf {
 
     private val books = listOf(
             Book("The Hitchhiker's Guide to the Galaxy", "0345391802", "Douglas Adams"),
+            Book("The Martian", "0553418025", "Andy Weir"),
+            Book("Guards! Guards!", "0062225758", "Terry Pratchett"),
+            Book("Alice in Wonderland", "3458317422", "Lewis Carroll"),
             Book("Life, the Universe and Everything", "0345391829", "Douglas Adams"))
 
     /**
