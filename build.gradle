@@ -46,7 +46,7 @@ dependencies {
     providedCompile "org.jetbrains.kotlin:kotlin-stdlib:$kotlinVersion"
     providedCompile "org.jetbrains.kotlin:kotlin-reflect:$kotlinVersion"
 
-    providedCompile 'fish.payara.extras:payara-micro:4.1.1.163'
+    providedCompile 'fish.payara.extras:payara-micro:4.1.1.164'
 
     testCompile 'org.codehaus.groovy:groovy-all:2.4.7'
     testCompile 'org.spockframework:spock-core:1.1-groovy-2.4-rc-1'
