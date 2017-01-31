@@ -20,9 +20,14 @@ buildscript {
 plugins {
     id "org.standardout.versioneye" version "1.4.0"
     id "com.github.hierynomus.license" version "0.13.1"
+
     id "com.github.lkishalmi.gatling" version "0.4.1"
     id "com.bmuschko.docker-remote-api" version "3.0.3"
     id "org.asciidoctor.convert" version "1.5.3"
+
+    id "com.moowork.node" version "1.1.1"
+    // id "com.moowork.grunt" version "1.1.1"
+    // id "com.moowork.gulp" version "1.1.1"
 }
 
 apply plugin: 'application'
@@ -164,6 +169,21 @@ task pushDockerImage(type: DockerPushImage) {
     imageName = "qaware-oss-docker-registry.bintray.io/lreimer/$project.name:$version"
 }
 
+
+node {
+    // Version of node to use.
+    version = '0.11.10'
+
+    // Version of npm to use.
+    npmVersion = '2.1.5'
+
+    // Version of Yarn to use.
+    yarnVersion = '0.16.1'
+
+    // If true, it will download node using above parameters.
+    // If false, it will try to use globally installed node.
+    download = true
+}
 asciidoctorj {
     version = '1.5.4.1'
 }
