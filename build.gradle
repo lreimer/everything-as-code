@@ -169,7 +169,6 @@ task pushDockerImage(type: DockerPushImage) {
     imageName = "qaware-oss-docker-registry.bintray.io/lreimer/$project.name:$version"
 }
 
-
 node {
     // Version of node to use.
     version = '0.11.10'

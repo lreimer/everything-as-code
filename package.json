@@ -1,0 +1,8 @@
+{
+  "name": "everything-as-code",
+  "version": "1.1.0",
+  "description": "A polyglot experiment.",
+  "scripts": {},
+  "devDependencies": {},
+  "dependencies": {}
+}
