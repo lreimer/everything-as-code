@@ -6,7 +6,7 @@
   "container": {
     "type": "DOCKER",
     "docker": {
-      "image": "qaware-oss-docker-registry.bintray.io/lreimer/everything-as-code:1.0.0",
+      "image": "qaware-oss-docker-registry.bintray.io/lreimer/everything-as-code:1.2.1",
       "network": "BRIDGE",
       "portMappings": [
         {
@@ -32,7 +32,10 @@
     }
   ],
   "labels": {
+    "cloudcontrol.enabled": "true",
+    "cloudcontrol.index": "2",
+    "LAUNCHPAD_ENABLE": "true",
     "LAUNCHPAD_COLOR": "PURPLE",
-    "LAUNCHPAD_ROW": 1
+    "LAUNCHPAD_ROW": 5
   }
 }
