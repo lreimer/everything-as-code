@@ -3,6 +3,7 @@ kind: Service
 metadata:
   name: everything-as-code
   labels:
+    app: everything-as-code
     tier: backend
 spec:
   # use NodePort here to be able to access the port on each node
@@ -10,25 +11,32 @@ spec:
   ports:
   - port: 18080
   selector:
+    app: everything-as-code
     tier: backend
 ---
 apiVersion: extensions/v1beta1
 kind: Deployment
 metadata:
   name: everything-as-code
+  labels:
+    app: everything-as-code
+    tier: backend
+    cloudcontrol.enabled: "true"
+    cloudcontrol.index: "2"
+    LAUNCHPAD_ENABLE: "true"
+    LAUNCHPAD_COLOR: PURPLE
+    LAUNCHPAD_ROW: "5"
 spec:
-  replicas: 1
-  minReadySeconds: 30
+  replicas: 2
   template:
     metadata:
       labels:
+        app: everything-as-code
         tier: backend
-        LAUNCHPAD_COLOR: PURPLE
-        LAUNCHPAD_ROW: 1
     spec:
       containers:
       - name: everything-as-code
-        image: "qaware-oss-docker-registry.bintray.io/lreimer/everything-as-code:1.0.0"
+        image: "qaware-oss-docker-registry.bintray.io/lreimer/everything-as-code:1.2.0"
         resources:
           requests:
             memory: "128Mi"
@@ -48,4 +56,17 @@ spec:
         - name: JAVA_OPTS
           value: -Xmx128m
         - name: PORT
-          value: 18080
+          value: "18080"
+---
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  labels:
+    app: everything-as-code
+    tier: backend
+  name: everything-as-code
+  namespace: default
+spec:
+  backend:
+    serviceName: everything-as-code
+    servicePort: 18080
