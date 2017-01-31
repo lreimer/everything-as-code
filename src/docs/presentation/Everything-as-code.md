@@ -1,10 +1,8 @@
-autoscale: true
-footer: // _OOP 2017_ // Everything-as-code -> { created with :heart: and :coffee: by @LeanderReimer @qaware }
-slidenumbers: true
+// _OOP 2017_ // Everything-as-code -> { created with :heart: and :coffee: by @LeanderReimer @qaware }
 
-# [fit] _Everything-as-code._
+# _Everything-as-code._
 
-## [fit] Polyglotte Entwicklung in der Praxis.
+## Polyglotte Entwicklung in der Praxis.
 
 ---
 
@@ -85,18 +83,18 @@ Which one is your favorite language?
 
 ---
 
-# [fit] _Die beste Programmiersprache_ gibt es nicht!
-## [fit] Auf den _Kontext_ kommt es an.
+# _Die beste Programmiersprache_ gibt es nicht!
+## Auf den _Kontext_ kommt es an.
 
 ---
 
 ![](Images/workbench.png)
-# [fit] Die _IDE_ ist unsere _Werkbank_.
+# Die _IDE_ ist unsere _Werkbank_.
 
 ---
 ^ The idea of a conveyor belt.
 
-## [fit] Unsere Definition von Software Industrialisierung
+## Unsere Definition von Software Industrialisierung
 
 - _Hat nichts mit billiger Arbeitskraft zu tun!_
 - Hoher Automatisiersgrad von arbeitsintensiven und wiederkehrenden Arbeitsschritten
@@ -121,7 +119,7 @@ val softwareIndustrialization = everythingAsCode()
 
 ---
 
-## [fit] The Quest for an ideal Polyglot Project Archetype
+## The Quest for an ideal Polyglot Project Archetype
 ^ Learn from our projects. Tailor made and streamlined project setup.
 
 - Welche Sprachen werden in unseren Projekten verwendet?
@@ -133,11 +131,11 @@ __+ Wishful Greenfield Thinking!__
 
 ---
 
-# [fit] _SEU_-as-code
+# _SEU_-as-code
 
 ---
 
-## [fit] Lightweight Developer Provisioning mit Gradle
+## Lightweight Developer Provisioning mit Gradle
 
 - _[ SEU ]_ -> Software Entwicklungs Umgebung
 - Nutzung von Gradle als Build-Tool für das Setup und die Aktualisierung unserer Entwicklungsumgebungen
@@ -170,7 +168,7 @@ dependencies {
 ^ Which build tool to use? Maven? Gradle? SBT? Ant? Gulp? Buildr?
 Our projects and customers still use Maven quite a lot.
 
-# [fit] _Build_-as-code
+# _Build_-as-code
 
 ---
 
@@ -207,11 +205,11 @@ task everythingAsCode() << {
 
 ---
 
-# [fit] _Main_-as-code
+# _Main_-as-code
 
 ---
 
-# [fit] _Java_ ist nach wie vor die primäre Implementierungssprache!
+# _Java_ ist nach wie vor die primäre Implementierungssprache!
 ## _Und das ist gut so!_
 
 ---
@@ -223,7 +221,7 @@ Statically typed. Compiled. Small footprint.
 
 ---
 
-## [fit] Warum Kotlin? Und nicht Scala, Clojure, ...
+## Warum Kotlin? Und nicht Scala, Clojure, ...
 
 - Für Java Entwickler sehr schnell zu erlernen.
 - Sehr ausgewogene Universalsprache.
@@ -262,12 +260,12 @@ class BookstoreAPI : Application() {
 ---
 ^ Not my cup of tea. Aber der Vollständigkeit halber.
 
-# [fit] _Frontend_-as-code
+# _Frontend_-as-code
 
 ---
 ^ Build tools gulp / grunt / broccoli / * optional.
 
-## [fit] Willkommen in der JavaScript Wunderwelt.
+## Willkommen in der JavaScript Wunderwelt.
 
 - Ein Universum für sich!
 - Klarer Trend: Single Page Webapplikationen.
@@ -280,13 +278,13 @@ class BookstoreAPI : Application() {
 ^ There are a lot of frameworks. JUnit, Hamcrest, Mockito, Cucumber, ...
 Some good, some bad. Some verbose.
 
-# [fit] _Test_-as-code
+# _Test_-as-code
 
 ---
 ^ Spock is super expressive. We can focus on the test and not the language.
 Groovy helps a lot here.
 
-## [fit] Groovy und Spock für Unit & Integration Tests
+## Groovy und Spock für Unit & Integration Tests
 
 ```groovy
 class BookshelfSpec extends Specification {
@@ -337,11 +335,11 @@ class BooksPerformanceTest extends Simulation {
 
 ---
 
-# [fit] _Pipeline_-as-code
+# _Pipeline_-as-code
 
 ---
 
-## [fit] Definition der Build-Pipeline per _Jenkinsfile_
+## Definition der Build-Pipeline per _Jenkinsfile_
 
 ```groovy
 #!/usr/bin/env groovy
@@ -365,7 +363,7 @@ node {
 
 ---
 
-## [fit] Gradle und Docker to start Jenkins
+## Gradle und Docker to start Jenkins
 
 ```groovy
 task createJenkinsHome() {
@@ -388,7 +386,7 @@ task stopJenkins(type: Exec, group: 'jenkinsci', description: 'Stop Jenkins') {
 
 ---
 
-# [fit] _Infrastructure_-as-code
+# _Infrastructure_-as-code
 
 ---
 
@@ -440,7 +438,7 @@ end
 
 ---
 
-## [fit] Provisionierung mit Ansible (und Python)
+## Provisionierung mit Ansible (und Python)
 
 ^ You write YAML. Based on Python, good to know.
 Also possible to use Ansible programmatically.
@@ -465,7 +463,7 @@ But it can also be used for Docker or Kubernetes.
 
 ---
 
-## [fit] Cluster Orchestration mit Kubernetes
+## Cluster Orchestration mit Kubernetes
 
 ```yaml
 ---
@@ -492,7 +490,7 @@ spec:
 
 ---
 
-# [fit] _Documentation_-as-code
+# _Documentation_-as-code
 
 ---
 ^ Design documentation, architecture documentation, ...
@@ -538,7 +536,7 @@ include::02_architecture_constraints.adoc[]
 
 ---
 
-## [fit] AsciidoctorJ und Gradle to the Rescue
+## AsciidoctorJ und Gradle to the Rescue
 ^ AsciidoctorJ is Asciidoctor on the JVM using JRuby.
 
 ```groovy
@@ -562,16 +560,16 @@ asciidoctor {
 
 ---
 
-# [fit] _Presentation_-as-code
+# _Presentation_-as-code
 
 ---
 ^ Alternatively use something like Reveal.js
 
-## [fit] These slides were written in Markdown.
+## These slides were written in Markdown.
 
 ```markdown
 ---
-## [fit] These slides were written in Markdown.
+## These slides were written in Markdown.
 
 - This is for real programmers! :smiley:
 - Several open source projects available
@@ -601,12 +599,12 @@ asciidoctor {
 ---
 
 # *Fork me* on GitHub.
-## [fit] https://github.com/lreimer/everything-as-code
+## https://github.com/lreimer/everything-as-code
 
 ---
 
 # We are *hiring*.
-## [fit] http://www.qaware.de/karriere/#jobs
+## http://www.qaware.de/karriere/#jobs
 
 ---
 
