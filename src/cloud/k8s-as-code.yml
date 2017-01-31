@@ -36,7 +36,7 @@ spec:
     spec:
       containers:
       - name: everything-as-code
-        image: "qaware-oss-docker-registry.bintray.io/lreimer/everything-as-code:1.2.0"
+        image: "qaware-oss-docker-registry.bintray.io/lreimer/everything-as-code:1.2.1"
         resources:
           requests:
             memory: "128Mi"

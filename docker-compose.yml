@@ -1,5 +1,5 @@
 everything-as-code:
-  image: "everything-as-code:1.2.0"
+  image: "everything-as-code:1.2.1"
   hostname: everything-as-code
   environment:
     JAVA_OPTS: -Xmx196m
