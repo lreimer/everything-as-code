@@ -25,6 +25,8 @@ package everything.as.code
 
 import spock.lang.Specification
 
+import java.util.logging.Logger
+
 /**
  * An interaction spec for our book REST resource.
  */
@@ -35,7 +37,7 @@ class BookResourceSpec extends Specification {
 
     void setup() {
         bookshelf = Mock(Bookshelf)
-        resource = new BookResource(bookshelf)
+        resource = new BookResource(bookshelf, Stub(Logger))
     }
 
     def "Get list of all books"() {

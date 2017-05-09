@@ -23,39 +23,18 @@
  */
 package everything.`as`.code
 
-import java.util.concurrent.ThreadLocalRandom
-import java.util.concurrent.TimeUnit
-import java.util.logging.Level
 import java.util.logging.Logger
-import javax.inject.Inject
-import javax.ws.rs.*
-import javax.ws.rs.core.MediaType
-import javax.ws.rs.core.Response
-import javax.ws.rs.core.Response.Status
+import javax.enterprise.context.ApplicationScoped
+import javax.enterprise.inject.Produces
+import javax.enterprise.inject.spi.InjectionPoint
 
 /**
- * The book REST resource with basic operations.
+ * Simple CDI producer for JULI loggers.
  */
-@Path("books")
-@Produces(MediaType.APPLICATION_JSON)
-open class BookResource @Inject constructor(private val bookshelf: Bookshelf, private val logger: Logger) {
-
-    @GET
-    open fun books(@QueryParam("title") title: String?): Collection<Book> {
-        TimeUnit.MILLISECONDS.sleep(ThreadLocalRandom.current().nextLong(1250))
-
-        logger.log(Level.INFO, "Get books by title {0}.", title)
-        return if (title.isNullOrEmpty()) bookshelf.all() else bookshelf.byTitle(title)
+@ApplicationScoped
+open class LoggerProducer {
+    @Produces
+    open fun produceLogger(injectionPoint: InjectionPoint): Logger {
+        return Logger.getLogger(injectionPoint.member.declaringClass.name)
     }
-
-    @GET
-    @Path("/{isbn}")
-    open fun byIsbn(@PathParam("isbn") isbn: String): Response {
-        TimeUnit.MILLISECONDS.sleep(ThreadLocalRandom.current().nextLong(1250))
-
-        logger.log(Level.INFO, "Get Book by ISBN {0}.", isbn)
-        val book = bookshelf.byIsbn(isbn)
-        return if (book != null) Response.ok(book).build() else Response.status(Status.NOT_FOUND).build()
-    }
-
 }
