@@ -29,5 +29,4 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties
  * A simple book POJO.
  */
 @JsonIgnoreProperties(ignoreUnknown = true)
-data class Book(val title: String, val isbn: String, val author: String) {
-}
+data class Book(val title: String, val isbn: String, val author: String)
