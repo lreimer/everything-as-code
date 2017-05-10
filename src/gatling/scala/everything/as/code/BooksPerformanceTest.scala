@@ -42,7 +42,7 @@ class BooksPerformanceTest extends Simulation {
 
   val scn = scenario("Book Search")
     .exec(http("Get all books").get("/api/books"))
-    .during(30 seconds) {
+    .during(15 seconds) {
       feed(feeder)
         .exec(http("Get book by title ${Title}").get("/api/books?title=${Title}"))
         .pause(1 second)
