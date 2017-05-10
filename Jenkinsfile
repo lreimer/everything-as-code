@@ -10,7 +10,7 @@ node {
     checkout scm
 
     stage 'Build/Analyse/Test'
-    sh './gradlew clean build'
+    sh './gradlew build'
     archiveUnitTestResults()
     archiveDistributions()
 
