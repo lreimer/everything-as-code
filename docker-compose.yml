@@ -1,8 +1,21 @@
-everything-as-code:
-  image: "everything-as-code:1.2.1"
-  hostname: everything-as-code
-  environment:
-    JAVA_OPTS: -Xmx196m
-    PORT: 18080
-  ports:
+version: '3'
+
+services:
+  mongodb:
+    image: mongo:3.5.8
+    ports:
+    - "27017:27017"
+  everything-as-code:
+    build: .
+    image: "everything-as-code:1.2.1"
+    environment:
+    - JAVA_OPTS=-Xmx196m
+    - PORT=18080
+    - MONGO_HOST=mongodb
+    ports:
     - "18080:18080"
+    depends_on:
+    - mongodb
+    links:
+    - mongodb
+
