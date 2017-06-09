@@ -35,3 +35,5 @@ src/vagrant/cache/apt-archives/lock
 src/cloud/dcos-vagrant-*/
 src/cloud/kubernetes.tar.gz
 src/cloud/kubernetes/
+src/vagrant/cache/apt-archives/partial/
+structure101-settings.javax.hsp
