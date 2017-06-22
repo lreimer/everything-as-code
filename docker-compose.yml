@@ -7,7 +7,7 @@ services:
     - "27017:27017"
   everything-as-code:
     build: .
-    image: "everything-as-code:1.2.1"
+    image: "everything-as-code:1.2.3"
     environment:
     - JAVA_OPTS=-Xmx196m
     - PORT=18080

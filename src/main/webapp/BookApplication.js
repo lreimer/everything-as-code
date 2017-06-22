@@ -79,7 +79,7 @@ class SearchBox extends React.Component {
     }
 }
 
-const BOOK_PATH = 'http://localhost:18080/api/books';
+const BOOK_PATH = '/api/books';
 
 class BookApplication extends React.Component {
 

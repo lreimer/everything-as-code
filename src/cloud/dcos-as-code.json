@@ -6,7 +6,7 @@
   "container": {
     "type": "DOCKER",
     "docker": {
-      "image": "qaware-oss-docker-registry.bintray.io/lreimer/everything-as-code:1.2.1",
+      "image": "qaware-oss-docker-registry.bintray.io/lreimer/everything-as-code:1.2.3",
       "network": "BRIDGE",
       "portMappings": [
         {
