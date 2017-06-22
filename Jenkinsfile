@@ -10,7 +10,7 @@ node {
     checkout scm
 
     stage 'Devoxx Stage'
-    echo "Hello Devoxx Poland changes."
+    echo "Hello Devoxx Poland demo hope you are fine."
     
     stage 'Build/Analyse/Test'
     sh './gradlew clean build'
