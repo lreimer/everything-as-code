@@ -22,7 +22,7 @@ plugins {
     id "com.github.hierynomus.license" version "0.13.1"
 
     id "com.github.lkishalmi.gatling" version "0.4.1"
-    id "com.bmuschko.docker-remote-api" version "3.0.6"
+    id "com.bmuschko.docker-remote-api" version "3.0.12"
     id "org.asciidoctor.convert" version "1.5.3"
 
     id "com.moowork.node" version "1.1.1"
@@ -133,10 +133,10 @@ gatling {
 
 docker {
     // use this for Docker for Mac
-    url = 'unix:///var/run/docker.sock'
+    // url = 'unix:///var/run/docker.sock'
 
-    // use this for Docker Toolbox or Minikube
-    // url = System.env.DOCKER_HOST ?: 'https://192.168.99.100:2376'
+    // use this for Docker for Windows or Minikube
+    // url = System.env.DOCKER_HOST ?: 'http://localhost:2375'
     // certPath = System.env.DOCKER_CERT_PATH ? file(System.env.DOCKER_CERT_PATH) : file("${System.getProperty('user.home')}/.docker/machine/machines/default")
 
     registryCredentials {
