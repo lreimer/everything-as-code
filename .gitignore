@@ -32,8 +32,7 @@ seuac.*.db
 src/vagrant/cache/apt-archives/*.deb
 src/vagrant/cache/apt-archives/lock
 
-src/cloud/dcos-vagrant-*/
-src/cloud/kubernetes.tar.gz
-src/cloud/kubernetes/
+src/cloud/dcos/dcos-vagrant-*/
+src/cloud/k8s/kubernetes.tar.gz
 src/vagrant/cache/apt-archives/partial/
 structure101-settings.javax.hsp

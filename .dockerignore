@@ -1,0 +1,12 @@
+.gradle/
+.idea/
+.vagrant/
+
+gradle/
+native/
+scripts/
+src/
+
+gradlew
+gradlew.bat
+gradle.properties

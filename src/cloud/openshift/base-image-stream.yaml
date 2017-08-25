@@ -1,0 +1,21 @@
+apiVersion: v1
+kind: ImageStream
+metadata:
+  name: alpine-k8s-openjdk8
+spec:
+  tags:
+  - annotations:
+      supports: java
+      tags: java
+      version: "8u121"
+    from:
+      kind: DockerImage
+      name: qaware-oss-docker-registry.bintray.io/base/alpine-k8s-openjdk8:8u121
+    name: "8u121"
+  - annotations:
+      supports: java
+      tags: java
+    from:
+      kind: ImageStreamTag
+      name: "8u121"
+    name: latest
