@@ -59,6 +59,7 @@ public class BookApplication {
                 .setHttpAutoBind(true)
                 .setAutoBindRange(20)
                 .setPrintLogo(false)
+                .setNoCluster(true)
                 .setDeploymentDir(getDeploymentDir())
                 .bootStrap();
     }
