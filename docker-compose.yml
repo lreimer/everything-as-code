@@ -1,21 +1,37 @@
 version: '3'
 
 services:
-  mongodb:
-    image: mongo:3.5.8
+
+  portainer:
+    image: portainer/portainer
+    volumes:
+    - "/var/run/docker.sock:/var/run/docker.sock"
     ports:
-    - "27017:27017"
+    - "9000:9000"
+
+  postgres-db:
+    image: "postgres:9.6.3"
+    environment:
+    - POSTGRES_USER=everything-as-code
+    - POSTGRES_PASSWORD=12qwasyx
+    ports:
+    - "15432:5432"
+
   everything-as-code:
     build: .
     image: "everything-as-code:1.2.3"
     environment:
     - JAVA_OPTS=-Xmx196m
     - PORT=18080
-    - MONGO_HOST=mongodb
     ports:
     - "18080:18080"
-    depends_on:
-    - mongodb
-    links:
-    - mongodb
+
+  # server-full:
+  #  image: "payara/server-full:173"
+  #  # The -d flag turns debug mode on
+  #  entrypoint: java -Xmx32m -XX:MetaspaceSize=8m -XX:MaxMetaspaceSize=16m -jar /opt/payara41/glassfish/lib/client/appserver-cli.jar start-domain -v -d domain1
+  #  ports:
+  #  - "28080:8080"
+  #  - "24848:4848"
+
 

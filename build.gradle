@@ -187,6 +187,7 @@ node {
     // If false, it will try to use globally installed node.
     download = true
 }
+
 asciidoctorj {
     version = '1.5.4.1'
 }

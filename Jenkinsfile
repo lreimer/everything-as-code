@@ -33,6 +33,7 @@ node {
     // maybe add a stage to deploy the image to
     // the infrastructure
 
+    /*
     stage("Build Docker Image") {
         unstash name: "tar"
         sh "oc start-build everything-as-code-image --from-file=build/libs/everything-as-code-1.2.3.tar -n ${project}"
@@ -42,6 +43,7 @@ node {
     stage("Deploy to OpenShift") {
         openshiftDeploy deploymentConfig: appName, namespace: project
     }
+    */
 
 }
 
