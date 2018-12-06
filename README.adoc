@@ -1,7 +1,5 @@
 image:https://travis-ci.org/lreimer/everything-as-code.svg?branch=master["Build Status", link="https://travis-ci.org/lreimer/everything-as-code"]
-image:https://badge.waffle.io/lreimer/everything-as-code.png?label=ready&title=Ready["Stories in Ready", link="http://waffle.io/lreimer/everything-as-code"]
-image:https://badge.waffle.io/lreimer/everything-as-code.png?label=in%20progress&title=In%20Progress["Stories in Progress", link="http://waffle.io/lreimer/everything-as-code"]
-image:https://www.versioneye.com/user/projects/57b0d490ba81b400169291b5/badge.svg?style=flat-square["Dependency Status", link="https://www.versioneye.com/user/projects/57b0d490ba81b400169291b5"]
+image:https://bettercodehub.com/edge/badge/lreimer/everything-as-code?branch=master["BCH compliance", link="https://bettercodehub.com/"]
 image:https://img.shields.io/badge/license-MIT%20License-blue.svg["MIT License", link=https://github.com/lreimer/everything-as-code/blob/master/LICENSE"]
 
 = Everything-as-code. A polyglot experiment.
